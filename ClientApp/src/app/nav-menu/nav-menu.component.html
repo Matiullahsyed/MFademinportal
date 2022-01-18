@@ -1,0 +1,64 @@
+<header>
+  <nav *ngIf="!hasRoute('login')"
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" >AdminPortal</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        
+
+        <ul  class="navbar-nav flex-grow">
+          <li (click)="prodSchedularReset()">
+              <button  class="btn btn-light" data-placement="top" data-toggle="tooltip" title="Schedular Reset"  type="button">ProdFeed<i   class="fa fa-reply-all"></i></button>
+          </li>
+          <li (click)="devSchedularReset()">
+            <button  class="btn btn-light" data-placement="top" data-toggle="tooltip" title="Schedular Reset"  type="button">DevFeed<i   class="fa fa-reply-all"></i></button>
+        </li>
+          <li >
+              <button  class="btn btn-light" data-placement="top" data-toggle="tooltip" title="Schedular Reset" type="button">Post<i  aria-hidden="true" class="fa fa-reply-all"></i></button>
+          </li>
+          <li  class="nav-item"  (click)="routingForDevLogs()">
+            <button  class="btn btn-light" data-placement="top" ><a  data-toggle="tooltip" title="Dev User Logs" >Dev <i  aria-hidden="true"  class="fa fa-users"></i></a></button>
+          </li>
+          <li  class="nav-item" (click)="routingForProdLogs()">
+            <button  class="btn btn-light" ><a   data-placement="top" data-toggle="tooltip" title="Prod User Logs" >Prod <i  aria-hidden="true" class="fa fa-users"></i></a></button>
+          </li>
+          <li  class="nav-item" (click)="routingForAddNewUser()">
+            <button class="btn btn-light">
+              <a  data-placement="top" data-toggle="tooltip" title="Add New User" >
+                      <i  aria-hidden="true" class="fa fa-plus"></i>
+              </a>
+            </button>
+          </li>
+          <li  class="nav-item link-active" (click)="routingForExpiry()" >
+            <button class="btn btn-light">
+              <a  data-placement="top" data-toggle="tooltip" title="Update Expirational Date">
+                  <i  aria-hidden="true" class="fa fa-wrench"></i>
+              </a></button>
+          </li>
+          <li  class="nav-item" (click)="logOut()">
+            <button class="btn btn-light">
+              <a   data-placement="top" data-toggle="tooltip" title="Logout">
+                <i class="fa fa-arrow-right" ></i>
+              </a>
+            </button>
+          </li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+</header>

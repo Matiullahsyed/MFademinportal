@@ -1,0 +1,119 @@
+
+<div _ngcontent-ng-cli-universal-c0="" class="container" id="con">
+    <div class="row">
+        <div class="col-sm-8">
+          <p>Dev Logs !</p>
+        </div>
+        <div class="col-md-3 col-xs-12 pull-right"
+             *ngIf="TotalPages != 0">
+          <ul *ngIf="pager.pages && pager.pages.length"
+              class="pagination pull-right">
+            <li class="page-item"
+                [ngClass]="{ disabled: pager.currentPage === 1 }"
+                aria-label="First">
+              <a *ngIf="pager.currentPage != 1"
+                 (click)="getpagedraftPost(1)"
+                 class="page-link">
+                <i class="fa fa-angle-double-left angle-lg"
+                   title="First"></i>
+              </a>
+              <a class="page-link" *ngIf="pager.currentPage == 1">
+                <i class="fa fa-angle-double-left angle-lg"
+                   title="First"></i>
+              </a>
+            </li>
+            <li class="page-item"
+                [ngClass]="{ disabled: pager.currentPage === 1 }"
+                aria-label="Previous">
+              <a class="page-link"
+                 *ngIf="pager.currentPage != 1"
+                 (click)="getpagedraftPost(pager.currentPage - 1)">
+                <i _ngcontent-ng-cli-universal-c11=""
+                   aria-hidden="true"
+                   class="fa fa-chevron-left"></i>
+              </a>
+              <a class="page-link" *ngIf="pager.currentPage == 1">
+                <i _ngcontent-ng-cli-universal-c11=""
+                   aria-hidden="true"
+                   class="fa fa-chevron-left"></i>
+              </a>
+            </li>
+            <li class=""
+                [ngClass]="{
+                disabled: true,
+                active: pager.currentPage === TotalPages
+              }">
+              <a class="page-count">
+                <b>
+                  {{ pager.currentPage }}
+                  Of {{ TotalPages }}
+                </b>
+              </a>
+            </li>
+            <li class="page-item"
+                [ngClass]="{
+                disabled: pager.currentPage === TotalPages
+              }"
+                aria-label="Next">
+              <a class="page-link"
+                 *ngIf="pager.currentPage != TotalPages"
+                 (click)="getpagedraftPost(pager.currentPage + 1)">
+                <i _ngcontent-ng-cli-universal-c11=""
+                   aria-hidden="true"
+                   class="fa fa-chevron-right"></i>
+              </a>
+              <a class="page-link"
+                 *ngIf="pager.currentPage == TotalPages">
+                <i _ngcontent-ng-cli-universal-c11=""
+                   aria-hidden="true"
+                   class="fa fa-chevron-right"></i>
+              </a>
+            </li>
+            <li class="page-item"
+                [ngClass]="{
+                disabled: pager.currentPage === TotalPages
+              }"
+                aria-label="Last">
+              <a class="page-link"
+                 *ngIf="pager.currentPage != TotalPages"
+                 (click)="getpagedraftPost(TotalPages)">
+                <i class="fa fa-angle-double-right angle-lg"
+                   title="Last"></i>
+              </a>
+              <a class="page-link"
+                 *ngIf="pager.currentPage == TotalPages">
+                <i class="fa fa-angle-double-right angle-lg"
+                   title="Last"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    <table _ngcontent-ng-cli-universal-c0="" class="table table-hover col-sm-12" id="Test" style="width:100%;">
+        <thead _ngcontent-ng-cli-universal-c0="">
+            <tr _ngcontent-ng-cli-universal-c0="">
+                <th _ngcontent-ng-cli-universal-c0="">Name</th>
+                <th _ngcontent-ng-cli-universal-c0="">Email</th>
+                <th _ngcontent-ng-cli-universal-c0="">Loged Info</th>
+                <th _ngcontent-ng-cli-universal-c0="">User ID</th>
+                <th _ngcontent-ng-cli-universal-c0="">Company ID</th>
+            </tr>
+            
+        </thead>
+    
+        <tbody _ngcontent-ng-cli-universal-c0="" id="exampleid">
+            
+            <tr *ngFor="let item of devUserLogsData">
+                <td>{{item.name}}</td>
+                <td>{{item.user_Joined_Email}}</td>
+                <td >{{item.logged_DateTime}}&nbsp;&nbsp;{{item.note}}</td>
+                <td>{{item.user_ID}}</td>
+                <td>{{item.company_ID}}</td>
+
+            </tr>
+        </tbody>
+       
+        <ul class="pagination" id="tbl"> 
+        </ul>
+    </table>
+</div>
